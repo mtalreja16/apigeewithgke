@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: accountsvcdeployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: accountsvc
+  template:
+    metadata:
+      labels:
+        app: accountsvc
+    spec:
+      containers:
+      - name: accountservice
+        image: gcr.io/stellar-psyche-329104/accountservice:latest
